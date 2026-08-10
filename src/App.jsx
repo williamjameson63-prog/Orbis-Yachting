@@ -64,44 +64,60 @@ function SectionLabel({ children, dark = false }) {
 export default function OrbisHome() {
   const HERO_SLIDES = [
     {
-      src: "/images/hero-1.jpg",
+      src: "/images/hero-7.jpg",
       alt: "Aerial drone shot of a sailing catamaran anchored near a crowded floating party boat and tenders in a turquoise bay",
       coord: "41.2284\u00b0 N \u00b7 9.4471\u00b0 E \u2014 La Maddalena Archipelago",
+      posMobile: "50% 62%",
+      posDesktop: "50% 78%",
     },
     {
       src: "/images/hero-2.jpg",
-      alt: "Aerial drone shot of a sailing catamaran at anchor with kitesurfers nearby in turquoise Caribbean water",
-      coord: "18.7268\u00b0 N \u00b7 64.4031\u00b0 W \u2014 British Virgin Islands",
+      alt: "Aerial top-down drone shot of a catamaran anchored alone in clear turquoise water",
+      coord: "18.5103\u00b0 N \u00b7 64.3853\u00b0 W \u2014 British Virgin Islands",
+      posMobile: "56% 50%",
+      posDesktop: "56% 80%",
     },
     {
       src: "/images/hero-3.jpg",
-      alt: "Aerial top-down drone shot of a catamaran anchored alone in clear turquoise water",
-      coord: "18.5103\u00b0 N \u00b7 64.3853\u00b0 W \u2014 British Virgin Islands",
+      alt: "Aerial drone shot of a sailing catamaran at anchor with kitesurfers nearby in turquoise Caribbean water",
+      coord: "18.7268\u00b0 N \u00b7 64.4031\u00b0 W \u2014 British Virgin Islands",
+      posMobile: "50% 45%",
+      posDesktop: "50% 40%",
     },
     {
-      src: "/images/hero-4.jpg",
+      src: "/images/hero-1.jpg",
       alt: "Aerial drone shot of an illuminated catamaran at anchor at night",
       coord: "41.3649\u00b0 N \u00b7 9.2694\u00b0 E \u2014 Sardinia, Italy",
+      posMobile: "50% 42%",
+      posDesktop: "50% 40%",
     },
     {
       src: "/images/hero-5.jpg",
       alt: "Aerial drone shot of two motor yachts anchored off a hillside coastal village with turquoise water",
-      coord: "41.1183\u00b0 N \u00b7 9.5442\u00b0 E \u2014 Porto Cervo, Sardinia",
+      coord: "41.1186\u00b0 N \u00b7 9.5431\u00b0 E \u2014 Porto Cervo, Sardinia",
+      posMobile: "50% 62%",
+      posDesktop: "50% 75%",
     },
     {
       src: "/images/hero-6.jpg",
       alt: "Aerial drone shot of a superyacht at anchor in a bay off a rocky, wooded coastline",
-      coord: "41.1183\u00b0 N \u00b7 9.5442\u00b0 E \u2014 Porto Cervo, Sardinia",
+      coord: "41.1181\u00b0 N \u00b7 9.5448\u00b0 E \u2014 Porto Cervo, Sardinia",
+      posMobile: "50% 57%",
+      posDesktop: "50% 64%",
     },
     {
-      src: "/images/hero-7.jpg",
+      src: "/images/hero-4.jpg",
       alt: "Aerial drone shot of a sailing catamaran anchored in a clear turquoise cove surrounded by rocky coastline",
       coord: "18.3136\u00b0 N \u00b7 64.6178\u00b0 W \u2014 British Virgin Islands",
+      posMobile: "50% 55%",
+      posDesktop: "50% 58%",
     },
     {
       src: "/images/hero-8.jpg",
       alt: "Aerial drone shot of a busy yacht anchorage with numerous yachts and boats leaving wakes near a rocky coastal village",
       coord: "41.1186\u00b0 N \u00b7 9.5432\u00b0 E \u2014 Porto Cervo, Sardinia",
+      posMobile: "50% 48%",
+      posDesktop: "50% 50%",
     },
   ];
 
@@ -237,18 +253,21 @@ export default function OrbisHome() {
           because centring a portrait clip inside a wide hero crops the water instead
           of the yacht. */}
       <section className="relative w-full overflow-hidden h-[500px] md:h-[72vh]" style={{ minHeight: "420px" }}>
-        {HERO_SLIDES.map((slide, i) => (
-          <img
-            key={slide.coord}
-            src={slide.src}
-            alt={slide.alt}
-            className="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 ease-in-out"
-            style={{
-              filter: "contrast(1.05) saturate(1.02) brightness(1.0)",
-              opacity: i === heroIndex ? 1 : 0,
-            }}
-          />
-        ))}
+        {HERO_SLIDES.map((slide, i) => {
+          const posClass = `object-[${slide.posMobile.replace(" ", "_")}] md:object-[${slide.posDesktop.replace(" ", "_")}]`;
+          return (
+            <img
+              key={slide.coord + i}
+              src={slide.src}
+              alt={slide.alt}
+              className={`absolute inset-0 w-full h-full object-cover ${posClass} transition-opacity duration-1000 ease-in-out`}
+              style={{
+                filter: "contrast(1.05) saturate(1.02) brightness(1.0)",
+                opacity: i === heroIndex ? 1 : 0,
+              }}
+            />
+          );
+        })}
         <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(16,14,11,0) 0%, rgba(16,14,11,0.05) 55%, rgba(16,14,11,0.55) 100%)" }} />
 
         <div className="absolute inset-x-0 bottom-0 max-w-[1400px] mx-auto px-6 md:px-10 pb-5 md:pb-6">
@@ -402,7 +421,7 @@ export default function OrbisHome() {
           {[
             { t: "Why choose the catamaran", tag: "Yacht Types", seed: "journal-1", photo: "/images/journal-1.jpg" },
             { t: "How yacht charter works", tag: "Chartering 101", seed: "journal-2" },
-            { t: "Choosing a yacht is easy, choosing the right crew isn't", tag: "Crew &amp; Service", seed: "journal-3" },
+            { t: "Choosing a yacht is easy, choosing the right crew isn't", tag: "Crew &amp; Service", seed: "journal-3", photo: "/images/journal-3.jpg" },
           ].map((a) => (
             <a href="#" key={a.t} className="group block">
               <div className="relative overflow-hidden aspect-[3/2]">
