@@ -6,19 +6,10 @@
 
 export const journal = [
   {
-    slug: "why-choose-the-catamaran",
-    title: "Why choose the catamaran",
-    tag: "Yacht Types",
-    photo: "/images/journal-1.jpg",
-    seed: "journal-1",
-    excerpt: "",
-    content: [],
-  },
-  {
     slug: "how-yacht-charter-works",
     title: "How yacht charter works",
     tag: "Chartering 101",
-    photo: null,
+    photo: "/images/journal-1.jpg",
     seed: "journal-2",
     excerpt: "",
     content: [],

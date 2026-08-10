@@ -5,62 +5,16 @@ import { getYachtBySlug } from "../data/yachts.js";
 import { journal } from "../data/journal.js";
 
 const HERO_SLIDES = [
-  {
-    src: "/images/hero-7.jpg",
-    alt: "Aerial drone shot of a sailing catamaran anchored near a crowded floating party boat and tenders in a turquoise bay",
-    coord: "41.2284\u00b0 N \u00b7 9.4471\u00b0 E \u2014 La Maddalena Archipelago",
-    posMobile: "50% 62%",
-    posDesktop: "50% 78%",
-  },
-  {
-    src: "/images/hero-2.jpg",
-    alt: "Aerial top-down drone shot of a catamaran anchored alone in clear turquoise water",
-    coord: "18.5103\u00b0 N \u00b7 64.3853\u00b0 W \u2014 British Virgin Islands",
-    posMobile: "56% 50%",
-    posDesktop: "56% 80%",
-  },
-  {
-    src: "/images/hero-3.jpg",
-    alt: "Aerial drone shot of a sailing catamaran at anchor with kitesurfers nearby in turquoise Caribbean water",
-    coord: "18.7268\u00b0 N \u00b7 64.4031\u00b0 W \u2014 British Virgin Islands",
-    posMobile: "50% 45%",
-    posDesktop: "50% 40%",
-  },
-  {
-    src: "/images/hero-1.jpg",
-    alt: "Aerial drone shot of an illuminated catamaran at anchor at night",
-    coord: "41.3649\u00b0 N \u00b7 9.2694\u00b0 E \u2014 Sardinia, Italy",
-    posMobile: "50% 42%",
-    posDesktop: "50% 40%",
-  },
-  {
-    src: "/images/hero-5.jpg",
-    alt: "Aerial drone shot of two motor yachts anchored off a hillside coastal village with turquoise water",
-    coord: "41.1186\u00b0 N \u00b7 9.5431\u00b0 E \u2014 Porto Cervo, Sardinia",
-    posMobile: "50% 62%",
-    posDesktop: "50% 75%",
-  },
-  {
-    src: "/images/hero-6.jpg",
-    alt: "Aerial drone shot of a superyacht at anchor in a bay off a rocky, wooded coastline",
-    coord: "41.1181\u00b0 N \u00b7 9.5448\u00b0 E \u2014 Porto Cervo, Sardinia",
-    posMobile: "50% 57%",
-    posDesktop: "50% 64%",
-  },
-  {
-    src: "/images/hero-4.jpg",
-    alt: "Aerial drone shot of a sailing catamaran anchored in a clear turquoise cove surrounded by rocky coastline",
-    coord: "18.3136\u00b0 N \u00b7 64.6178\u00b0 W \u2014 British Virgin Islands",
-    posMobile: "50% 55%",
-    posDesktop: "50% 58%",
-  },
-  {
-    src: "/images/hero-8.jpg",
-    alt: "Aerial drone shot of a busy yacht anchorage with numerous yachts and boats leaving wakes near a rocky coastal village",
-    coord: "41.1186\u00b0 N \u00b7 9.5432\u00b0 E \u2014 Porto Cervo, Sardinia",
-    posMobile: "50% 48%",
-    posDesktop: "50% 50%",
-  },
+  { src: "/images/hero-7.jpg", alt: "Top-down aerial drone shot of an illuminated superyacht at night, Golfo di Cugnana, Sardinia", coord: "41.1381\u00b0 N \u00b7 9.4587\u00b0 E \u2014 Golfo di Cugnana, Costa Smeralda" },
+  { src: "/images/hero-1.jpg", alt: "Aerial drone shot of a sailing catamaran at anchor off a white sand beach, Anegada, British Virgin Islands", coord: "18.7263\u00b0 N \u00b7 64.4031\u00b0 W \u2014 Pomato Point, Anegada, BVI" },
+  { src: "/images/hero-8.jpg", alt: "Top-down aerial drone shot of an illuminated superyacht at night, Golfo di Cugnana, Sardinia", coord: "41.1356\u00b0 N \u00b7 9.4600\u00b0 E \u2014 Golfo di Cugnana, Costa Smeralda" },
+  { src: "/images/hero-4.jpg", alt: "Aerial drone shot of a sailing catamaran anchored among clear turquoise water and granite islets, Lavezzi archipelago, Corsica", coord: "41.3650\u00b0 N \u00b7 9.2697\u00b0 E \u2014 Lavezzi Archipelago, Corsica" },
+  { src: "/images/hero-9.jpg", alt: "Top-down aerial drone shot of an illuminated superyacht at night, Golfo di Cugnana, Sardinia", coord: "41.1355\u00b0 N \u00b7 9.4600\u00b0 E \u2014 Golfo di Cugnana, Costa Smeralda" },
+  { src: "/images/hero-2.jpg", alt: "Aerial drone shot of a sailing catamaran at anchor near the coast at dusk, Anegada, British Virgin Islands", coord: "18.7270\u00b0 N \u00b7 64.4047\u00b0 W \u2014 Pomato Point, Anegada, BVI" },
+  { src: "/images/hero-10.jpg", alt: "Top-down aerial drone shot of an illuminated sailing catamaran at night, Golfo di Cugnana, Sardinia", coord: "41.1342\u00b0 N \u00b7 9.4635\u00b0 E \u2014 Golfo di Cugnana, Costa Smeralda" },
+  { src: "/images/hero-3.jpg", alt: "Top-down aerial drone shot of a sailing catamaran with its tender, Anegada, British Virgin Islands", coord: "18.7268\u00b0 N \u00b7 64.4038\u00b0 W \u2014 Pomato Point, Anegada, BVI" },
+  { src: "/images/hero-5.jpg", alt: "Aerial drone shot of a superyacht at anchor at dusk, Golfo di Cugnana, Sardinia", coord: "41.1350\u00b0 N \u00b7 9.4616\u00b0 E \u2014 Golfo di Cugnana, Costa Smeralda" },
+  { src: "/images/hero-6.jpg", alt: "Aerial drone shot of a superyacht at anchor off the coast at dusk, Golfo di Cugnana, Sardinia", coord: "41.1391\u00b0 N \u00b7 9.4582\u00b0 E \u2014 Golfo di Cugnana, Costa Smeralda" },
 ];
 
 const FEATURED_SLUGS = ["mane-et-nocte", "xmotion", "ocean-vibes"];
@@ -97,21 +51,15 @@ export default function Home() {
 
       {/* HERO */}
       <section className="relative w-full overflow-hidden h-[500px] md:h-[72vh]" style={{ minHeight: "420px" }}>
-        {HERO_SLIDES.map((slide, i) => {
-          const posClass = `object-[${slide.posMobile.replace(" ", "_")}] md:object-[${slide.posDesktop.replace(" ", "_")}]`;
-          return (
-            <img
-              key={slide.coord + i}
-              src={slide.src}
-              alt={slide.alt}
-              className={`absolute inset-0 w-full h-full object-cover ${posClass} transition-opacity duration-1000 ease-in-out`}
-              style={{
-                filter: "contrast(1.05) saturate(1.02) brightness(1.0)",
-                opacity: i === heroIndex ? 1 : 0,
-              }}
-            />
-          );
-        })}
+        {HERO_SLIDES.map((slide, i) => (
+          <img
+            key={slide.src}
+            src={slide.src}
+            alt={slide.alt}
+            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out"
+            style={{ opacity: i === heroIndex ? 1 : 0 }}
+          />
+        ))}
         <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(16,14,11,0) 0%, rgba(16,14,11,0.05) 55%, rgba(16,14,11,0.55) 100%)" }} />
 
         <div className="absolute inset-x-0 bottom-0 max-w-[1400px] mx-auto px-6 md:px-10 pb-5 md:pb-6">
