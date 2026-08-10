@@ -83,7 +83,7 @@ const NAV_LINKS = [
   { label: "Yacht for Charter", to: "/yachts" },
   { label: "Destinations", to: "#" },
   { label: "Experiences", to: "#" },
-  { label: "Journal", to: "#" },
+  { label: "Journal", to: "/journal" },
   { label: "About", to: "#" },
 ];
 
@@ -232,7 +232,7 @@ export function Footer() {
           </div>
           {[
             ["Charter", [["Yacht Collection", "/yachts"], ["Destinations", "#"], ["Experiences", "#"], ["Search", "#"]]],
-            ["Orbis", [["About", "#"], ["Captain's Notes", "#"], ["Journal", "#"], ["Contact", "#"]]],
+            ["Orbis", [["About", "#"], ["Captain's Notes", "#"], ["Journal", "/journal"], ["Contact", "#"]]],
             ["Legal", [["Privacy", "#"], ["Terms", "#"], ["FAQ", "#"]]],
           ].map(([h, items]) => (
             <div key={h}>

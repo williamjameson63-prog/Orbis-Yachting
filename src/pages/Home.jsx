@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Header, Footer, GlobalStyles, Coord, SectionLabel, Img } from "../components/Chrome.jsx";
 import { getYachtBySlug } from "../data/yachts.js";
+import { journal } from "../data/journal.js";
 
 const HERO_SLIDES = [
   {
@@ -252,32 +253,28 @@ export default function Home() {
             <SectionLabel>Journal</SectionLabel>
             <h2 className="disp text-3xl md:text-4xl font-light">From the bridge</h2>
           </div>
-          <a href="#" className="hidden md:block text-[12px] tracking-[0.15em] uppercase link-quiet">All Articles</a>
+          <Link to="/journal" className="hidden md:block text-[12px] tracking-[0.15em] uppercase link-quiet">All Articles</Link>
         </div>
         <div className="grid md:grid-cols-3 gap-8 md:gap-10">
-          {[
-            { t: "Why choose the catamaran", tag: "Yacht Types", seed: "journal-1", photo: "/images/journal-1.jpg" },
-            { t: "How yacht charter works", tag: "Chartering 101", seed: "journal-2" },
-            { t: "Choosing a yacht is easy, choosing the right crew isn't", tag: "Crew & Service", seed: "journal-3", photo: "/images/journal-3.jpg" },
-          ].map((a) => (
-            <a href="#" key={a.t} className="group block">
+          {journal.slice(0, 3).map((a) => (
+            <Link to={`/journal/${a.slug}`} key={a.slug} className="group block">
               <div className="relative overflow-hidden aspect-[3/2]">
                 {a.photo ? (
                   <img
                     src={a.photo}
-                    alt={a.t}
+                    alt={a.title}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"
                   />
                 ) : (
-                  <Img seed={a.seed} alt={a.t} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <Img seed={a.seed} alt={a.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 )}
               </div>
               <div className="mt-4">
                 <Coord>{a.tag}</Coord>
-                <h3 className="disp text-lg font-light mt-2 leading-snug">{a.t}</h3>
+                <h3 className="disp text-lg font-light mt-2 leading-snug">{a.title}</h3>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </section>
