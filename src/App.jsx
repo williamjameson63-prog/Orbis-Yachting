@@ -65,33 +65,43 @@ export default function OrbisHome() {
   const HERO_SLIDES = [
     {
       src: "/images/hero-1.jpg",
-      alt: "Aerial top-down drone shot of a catamaran named HC 481 at anchor at night, illuminated deck and underwater lights",
+      alt: "Aerial drone shot of a sailing catamaran anchored near a crowded floating party boat and tenders in a turquoise bay",
       coord: "41.2284\u00b0 N \u00b7 9.4471\u00b0 E \u2014 La Maddalena Archipelago",
     },
     {
       src: "/images/hero-2.jpg",
-      alt: "Aerial drone shot of a superyacht at anchor in a bay off a rocky, wooded coastline",
-      coord: "41.1183\u00b0 N \u00b7 9.5442\u00b0 E \u2014 Porto Cervo, Sardinia",
+      alt: "Aerial drone shot of a sailing catamaran at anchor with kitesurfers nearby in turquoise Caribbean water",
+      coord: "18.7268\u00b0 N \u00b7 64.4031\u00b0 W \u2014 British Virgin Islands",
     },
     {
       src: "/images/hero-3.jpg",
-      alt: "Aerial shot of a catamaran anchored over turquoise water with kitesurfers and a tender nearby",
-      coord: "18.5107\u00b0 N \u00b7 64.3862\u00b0 W \u2014 British Virgin Islands",
+      alt: "Aerial top-down drone shot of a catamaran anchored alone in clear turquoise water",
+      coord: "18.5103\u00b0 N \u00b7 64.3853\u00b0 W \u2014 British Virgin Islands",
     },
     {
       src: "/images/hero-4.jpg",
+      alt: "Aerial drone shot of an illuminated catamaran at anchor at night",
+      coord: "41.3649\u00b0 N \u00b7 9.2694\u00b0 E \u2014 Sardinia, Italy",
+    },
+    {
+      src: "/images/hero-5.jpg",
       alt: "Aerial drone shot of two motor yachts anchored off a hillside coastal village with turquoise water",
       coord: "41.1183\u00b0 N \u00b7 9.5442\u00b0 E \u2014 Porto Cervo, Sardinia",
     },
     {
-      src: "/images/hero-5.jpg",
-      alt: "Catamaran at anchor at dusk with the town of Saint-Tropez visible in the distance",
-      coord: "43.2750\u00b0 N \u00b7 6.6216\u00b0 E \u2014 Saint-Tropez, France",
+      src: "/images/hero-6.jpg",
+      alt: "Aerial drone shot of a superyacht at anchor in a bay off a rocky, wooded coastline",
+      coord: "41.1183\u00b0 N \u00b7 9.5442\u00b0 E \u2014 Porto Cervo, Sardinia",
     },
     {
-      src: "/images/hero-6.jpg",
-      alt: "Aerial drone shot of a busy yacht anchorage with numerous yachts and boats leaving wakes",
-      coord: "41.1183\u00b0 N \u00b7 9.5442\u00b0 E \u2014 Porto Cervo, Sardinia",
+      src: "/images/hero-7.jpg",
+      alt: "Aerial drone shot of a sailing catamaran anchored in a clear turquoise cove surrounded by rocky coastline",
+      coord: "18.3136\u00b0 N \u00b7 64.6178\u00b0 W \u2014 British Virgin Islands",
+    },
+    {
+      src: "/images/hero-8.jpg",
+      alt: "Aerial drone shot of a busy yacht anchorage with numerous yachts and boats leaving wakes near a rocky coastal village",
+      coord: "41.1186\u00b0 N \u00b7 9.5432\u00b0 E \u2014 Porto Cervo, Sardinia",
     },
   ];
 
@@ -390,13 +400,22 @@ export default function OrbisHome() {
         </div>
         <div className="grid md:grid-cols-3 gap-8 md:gap-10">
           {[
-            { t: "Why choose the catamaran", tag: "Yacht Types", seed: "journal-1" },
+            { t: "Why choose the catamaran", tag: "Yacht Types", seed: "journal-1", photo: "/images/journal-1.jpg" },
             { t: "How yacht charter works", tag: "Chartering 101", seed: "journal-2" },
             { t: "Choosing a yacht is easy, choosing the right crew isn't", tag: "Crew &amp; Service", seed: "journal-3" },
           ].map((a) => (
             <a href="#" key={a.t} className="group block">
               <div className="relative overflow-hidden aspect-[3/2]">
-                <Img seed={a.seed} alt={a.t} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                {a.photo ? (
+                  <img
+                    src={a.photo}
+                    alt={a.t}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                ) : (
+                  <Img seed={a.seed} alt={a.t} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                )}
               </div>
               <div className="mt-4">
                 <Coord>{a.tag}</Coord>
