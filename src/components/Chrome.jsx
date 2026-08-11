@@ -80,8 +80,8 @@ export function SectionLabel({ children, dark = false }) {
 }
 
 const NAV_LINKS = [
-  { label: "Yacht for Charter", to: "/yachts" },
-  { label: "Destinations", to: "#" },
+  { label: "Yachts for Charter", to: "/yachts" },
+  { label: "Destinations", to: "/destinations" },
   { label: "Experiences", to: "#" },
   { label: "Journal", to: "/journal" },
   { label: "About", to: "#" },
@@ -231,7 +231,7 @@ export function Footer() {
             </p>
           </div>
           {[
-            ["Charter", [["Yacht Collection", "/yachts"], ["Destinations", "#"], ["Experiences", "#"], ["Search", "#"]]],
+            ["Charter", [["Yacht Collection", "/yachts"], ["Destinations", "/destinations"], ["Experiences", "#"], ["Search", "#"]]],
             ["Orbis", [["About", "#"], ["Captain's Notes", "#"], ["Journal", "/journal"], ["Contact", "#"]]],
             ["Legal", [["Privacy", "#"], ["Terms", "#"], ["FAQ", "#"]]],
           ].map(([h, items]) => (

@@ -107,10 +107,12 @@ export default function YachtDetail() {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
             {yacht.gallery.map((g, i) => (
               <div key={i} className={`relative overflow-hidden ${i === 0 ? "col-span-2 md:col-span-2 row-span-2 aspect-[4/3] md:aspect-auto" : "aspect-[4/3]"}`}>
-                <img src={g.src} alt={`${yacht.name} — ${g.caption}`} className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-                <span className="absolute bottom-2 left-2 font-mono text-[9px] tracking-[0.15em] uppercase px-2 py-1" style={{ color: "#F6F3EC", background: "rgba(16,14,11,0.5)" }}>
-                  {g.caption}
-                </span>
+                <img src={g.src} alt={g.caption ? `${yacht.name} — ${g.caption}` : `${yacht.name} — photo ${i + 1}`} className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                {g.caption && (
+                  <span className="absolute bottom-2 left-2 font-mono text-[9px] tracking-[0.15em] uppercase px-2 py-1" style={{ color: "#F6F3EC", background: "rgba(16,14,11,0.5)" }}>
+                    {g.caption}
+                  </span>
+                )}
               </div>
             ))}
           </div>

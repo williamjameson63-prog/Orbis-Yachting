@@ -4,6 +4,7 @@ import Fleet from "./pages/Fleet.jsx";
 import YachtDetail from "./pages/YachtDetail.jsx";
 import Journal from "./pages/Journal.jsx";
 import JournalDetail from "./pages/JournalDetail.jsx";
+import Destinations from "./pages/Destinations.jsx";
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
       <Route path="/yachts/:slug" element={<YachtDetail />} />
       <Route path="/journal" element={<Journal />} />
       <Route path="/journal/:slug" element={<JournalDetail />} />
+      <Route path="/destinations" element={<Destinations />} />
     </Routes>
   );
 }
