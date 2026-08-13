@@ -63,7 +63,7 @@ export default function YachtDetail() {
         />
         <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(16,14,11,0.05) 0%, rgba(16,14,11,0.1) 45%, rgba(16,14,11,0.65) 100%)" }} />
         <div className="absolute inset-x-0 bottom-0 max-w-[1400px] mx-auto px-6 md:px-10 pb-8 md:pb-12">
-          <Coord dark>{yacht.builder} · Built {yacht.built}</Coord>
+          <Coord dark>{yacht.builder}{yacht.built ? ` · Built ${yacht.built}` : ""}</Coord>
           <h1 className="disp text-4xl md:text-6xl font-light mt-3" style={{ color: "#F6F3EC" }}>
             {yacht.name}
           </h1>
@@ -79,7 +79,7 @@ export default function YachtDetail() {
           <Stat label="Length" value={yacht.length.split(" / ")[0]} />
           <Stat label="Guests" value={yacht.guests} />
           <Stat label="Cabins" value={yacht.cabins} />
-          <Stat label="Crew" value={yacht.crew} />
+          <Stat label="Crew" value={yacht.crew ?? "On Enquiry"} />
           <Stat label="Max Speed" value={yacht.maxSpeed} />
           <Stat label="From" value={yacht.priceFrom} />
         </div>
@@ -125,7 +125,7 @@ export default function YachtDetail() {
           <div className="md:col-span-4">
             <SectionLabel>Accommodation</SectionLabel>
             <p className="text-[15px] leading-relaxed" style={{ color: "#3A3529" }}>
-              {yacht.cabins} cabins for up to {yacht.guests} guests, run by a crew of {yacht.crew}.
+              {yacht.cabins} cabins for up to {yacht.guests} guests{yacht.crew ? `, run by a crew of ${yacht.crew}` : ""}.
             </p>
           </div>
           <div className="md:col-span-7 md:col-start-6">
@@ -142,42 +142,50 @@ export default function YachtDetail() {
       </section>
 
       {/* TOYS & AMENITIES */}
-      <section className="py-20 md:py-28" style={{ background: "#EDE8DC" }}>
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10 grid md:grid-cols-2 gap-14">
-          <div>
-            <SectionLabel>Water Toys</SectionLabel>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-[14px]" style={{ color: "#3A3529" }}>
-              {yacht.toys.map((t, i) => <li key={i}>· {t}</li>)}
-            </ul>
+      {((yacht.toys && yacht.toys.length > 0) || (yacht.amenities && yacht.amenities.length > 0)) && (
+        <section className="py-20 md:py-28" style={{ background: "#EDE8DC" }}>
+          <div className="max-w-[1400px] mx-auto px-6 md:px-10 grid md:grid-cols-2 gap-14">
+            {yacht.toys && yacht.toys.length > 0 && (
+              <div>
+                <SectionLabel>Water Toys</SectionLabel>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-[14px]" style={{ color: "#3A3529" }}>
+                  {yacht.toys.map((t, i) => <li key={i}>· {t}</li>)}
+                </ul>
+              </div>
+            )}
+            {yacht.amenities && yacht.amenities.length > 0 && (
+              <div>
+                <SectionLabel>Amenities</SectionLabel>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-[14px]" style={{ color: "#3A3529" }}>
+                  {yacht.amenities.map((a, i) => <li key={i}>· {a}</li>)}
+                </ul>
+              </div>
+            )}
           </div>
-          <div>
-            <SectionLabel>Amenities</SectionLabel>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-[14px]" style={{ color: "#3A3529" }}>
-              {yacht.amenities.map((a, i) => <li key={i}>· {a}</li>)}
-            </ul>
-          </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* CREW */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-10 py-20 md:py-28">
-        <SectionLabel>Yacht Crew</SectionLabel>
-        <h2 className="disp text-3xl md:text-4xl font-light mb-12">{yacht.crew} aboard {yacht.name}</h2>
-        <div className="grid md:grid-cols-2 gap-x-10 gap-y-10">
-          {yacht.crewList.map((c) => (
-            <div key={c.name} className="pb-8 border-b hairline">
-              <div className="flex justify-between items-baseline">
-                <h3 className="disp text-xl font-light">{c.name}</h3>
-                <Coord>{c.role}</Coord>
+      {yacht.crewList && yacht.crewList.length > 0 && (
+        <section className="max-w-[1400px] mx-auto px-6 md:px-10 py-20 md:py-28">
+          <SectionLabel>Yacht Crew</SectionLabel>
+          <h2 className="disp text-3xl md:text-4xl font-light mb-12">{yacht.crew} aboard {yacht.name}</h2>
+          <div className="grid md:grid-cols-2 gap-x-10 gap-y-10">
+            {yacht.crewList.map((c) => (
+              <div key={c.name} className="pb-8 border-b hairline">
+                <div className="flex justify-between items-baseline">
+                  <h3 className="disp text-xl font-light">{c.name}</h3>
+                  <Coord>{c.role}</Coord>
+                </div>
+                <p className="mt-1 text-[12px]" style={{ color: "#8A8371" }}>
+                  {c.nationality} {c.languages ? `· ${c.languages}` : ""}
+                </p>
+                <p className="mt-3 text-[14px] leading-relaxed" style={{ color: "#3A3529" }}>{c.bio}</p>
               </div>
-              <p className="mt-1 text-[12px]" style={{ color: "#8A8371" }}>
-                {c.nationality} {c.languages ? `· ${c.languages}` : ""}
-              </p>
-              <p className="mt-3 text-[14px] leading-relaxed" style={{ color: "#3A3529" }}>{c.bio}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* RATES */}
       <section className="py-20 md:py-28" style={{ background: "#17140F" }}>
