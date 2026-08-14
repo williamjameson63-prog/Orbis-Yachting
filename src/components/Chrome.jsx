@@ -100,7 +100,7 @@ const NAV_LINKS = [
   { label: "Destinations", to: "/destinations" },
   { label: "Experiences", to: "#" },
   { label: "Journal", to: "/journal" },
-  { label: "About", to: "#" },
+  { label: "About", to: "/about" },
 ];
 
 export function Header({ transparentOnTop = true }) {
@@ -248,7 +248,7 @@ export function Footer() {
           </div>
           {[
             ["Charter", [["Yacht Collection", "/yachts"], ["Destinations", "/destinations"], ["Experiences", "#"], ["Search", "#"]]],
-            ["Orbis", [["About", "#"], ["Captain's Notes", "#"], ["Journal", "/journal"], ["Contact", "#"]]],
+            ["Orbis", [["About", "/about"], ["Captain's Notes", "#"], ["Journal", "/journal"], ["Contact", "#"]]],
             ["Legal", [["Privacy", "#"], ["Terms", "#"], ["FAQ", "#"]]],
           ].map(([h, items]) => (
             <div key={h}>

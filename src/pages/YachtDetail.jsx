@@ -98,6 +98,16 @@ export default function YachtDetail() {
           <span><span style={{ color: "#8A8371" }}>Draft </span>{yacht.draft}</span>
           <span><span style={{ color: "#8A8371" }}>Cruising Speed </span>{yacht.cruisingSpeed}</span>
         </div>
+        {yacht.highlights && yacht.highlights.length > 0 && (
+          <div className="mt-14 grid sm:grid-cols-2 gap-x-8 gap-y-4">
+            {yacht.highlights.map((h, i) => (
+              <div key={i} className="flex items-start gap-3 pb-4 border-b hairline">
+                <span className="font-mono text-[11px] mt-1" style={{ color: "#A7844F" }}>{String(i + 1).padStart(2, "0")}</span>
+                <span className="text-[14px] leading-relaxed" style={{ color: "#17140F" }}>{h}</span>
+              </div>
+            ))}
+          </div>
+        )}
       </section>
 
       {/* GALLERY */}

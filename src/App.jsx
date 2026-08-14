@@ -5,6 +5,7 @@ import YachtDetail from "./pages/YachtDetail.jsx";
 import Journal from "./pages/Journal.jsx";
 import JournalDetail from "./pages/JournalDetail.jsx";
 import Destinations from "./pages/Destinations.jsx";
+import About from "./pages/About.jsx";
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
       <Route path="/journal" element={<Journal />} />
       <Route path="/journal/:slug" element={<JournalDetail />} />
       <Route path="/destinations" element={<Destinations />} />
+      <Route path="/about" element={<About />} />
     </Routes>
   );
 }
