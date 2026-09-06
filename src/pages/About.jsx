@@ -22,13 +22,13 @@ export default function About() {
       <section className="max-w-[1000px] mx-auto px-6 md:px-10 pt-20 pb-16 md:pt-28 md:pb-20">
         <SectionLabel>About Orbis</SectionLabel>
         <h1 className="disp text-4xl md:text-6xl font-light leading-tight max-w-2xl">
-          A charter advisory built by people who've actually been at sea.
+          A charter advisory built by people who know the industry from the inside.
         </h1>
         <p className="mt-6 text-[16px] md:text-[17px] leading-relaxed max-w-xl" style={{ color: "#3A3529" }}>
-          Orbis was founded by a professional yacht captain who grew tired of watching charters
-          get arranged by people who had never set foot on the boats they were selling. We work
-          differently — every charter is shaped by people who understand yachts, crews and life
-          on the water firsthand, not just a catalogue of listings.
+          Orbis was built by experienced professionals from the yacht industry, tired of watching
+          charters get arranged by people who had never set foot on the boats they were selling.
+          We work differently — every charter is shaped by people who understand yachts, crews
+          and life on the water firsthand, not just a catalogue of listings.
         </p>
       </section>
 

@@ -147,8 +147,8 @@ export default function Home() {
           </div>
           <div className="md:col-span-7 md:col-start-6 flex flex-col justify-end">
             <p className="text-[17px] md:text-[19px] leading-relaxed" style={{ color: "#3A3529" }}>
-              Behind Orbis is a team of former captains and crew with years of experience
-              operating luxury yachts around the world. We know the yachts, the crews who run
+              Behind Orbis is a team of experienced professionals from the yacht industry, with years
+              of experience operating luxury yachts around the world. We know the yachts, the crews who run
               them, the standards of management behind them, and the subtle differences that
               define an exceptional charter. That insight shapes every charter we book.
             </p>

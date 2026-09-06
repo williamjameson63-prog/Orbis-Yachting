@@ -243,7 +243,7 @@ export function Footer() {
           <div className="md:col-span-2">
             <img src={LOGO_WHITE} alt="Orbis" className="h-10 w-auto" />
             <p className="mt-4 text-[13px] leading-relaxed max-w-xs">
-              A private yacht charter advisory, founded by a professional yacht captain.
+              A private yacht charter advisory, built by experienced professionals from the yacht industry.
             </p>
           </div>
           {[
